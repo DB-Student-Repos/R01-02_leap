@@ -1,3 +1,12 @@
 pub fn is_leap_year(year: u64) -> bool {
-    unimplemented!("true if {year} is a leap year")
+    if year % 4 == 0 {
+        if year % 100 == 0 {
+            if year % 400 == 0 {
+                return true; // Divisible by 400, leap year
+            }
+            return false; // Divisible by 100 but not by 400, not a leap year
+        }
+        return true; // Divisible by 4 but not by 100, leap year
+    }
+    false // Not divisible by 4, not a leap year
 }
